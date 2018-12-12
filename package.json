@@ -1,0 +1,40 @@
+{
+  "_from": "eventsubscripts_ikk",
+  "_id": "eventsubscripts_ikk@1.0.2",
+  "_inBundle": false,
+  "_integrity": "sha512-ON5gao/SUSbUwATFzDGp+kuPeAKXV/6XRgyHfOt+xEAN2GtL4IpZQnQ0/Hz24uQ1J4dPCEjC1FlakcOWBwGmpA==",
+  "_location": "/eventsubscripts_ikk",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "eventsubscripts_ikk",
+    "name": "eventsubscripts_ikk",
+    "escapedName": "eventsubscripts_ikk",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/eventsubscripts_ikk/-/eventsubscripts_ikk-1.0.2.tgz",
+  "_shasum": "fb2aa3c1c2b8e50aa7f49ddd508e5099f9a38862",
+  "_spec": "eventsubscripts_ikk",
+  "_where": "D:\\demo\\vue-ts-test",
+  "author": {
+    "name": "wucheng"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "establishing a global event subscription system",
+  "license": "ISC",
+  "main": "./dist/EventSubscribe.js",
+  "name": "eventsubscripts_ikk",
+  "scripts": {
+    "release": "npm version patch && npm publish --access public",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.2"
+}
