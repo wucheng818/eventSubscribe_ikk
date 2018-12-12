@@ -1,11 +1,12 @@
 {
   "name": "eventsubscripts_ikk",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "establishing a global event subscription system",
   "main": "./dist/EventSubscribe.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "release": "npm version patch && npm publish --access public"
+    "release": "npm version patch && npm publish --access public",
+    "version": "standard-version"
   },
   "keywords": [
     "eventsubscripts"
@@ -15,5 +16,8 @@
     "url": "https://github.com/wucheng818/eventSubscribe_ikk.git"
   },
   "author": "wucheng",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "standard-version": "^4.4.0"
+  }
 }
