@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Detail = /** @class */ (function () {
+var Detail = (function () {
     function Detail() {
     }
     Detail.prototype.onSubscribe = function (eventType, handler) {
@@ -21,7 +21,7 @@ var Detail = /** @class */ (function () {
             }
         }
     };
-    Detail.prototype.emit = function (eventType) {
+    Detail.prototype.emit = function (eventType, data) {
         var IEventArr = Array.prototype.slice.call(arguments, 1);
         for (var i = 0; i < IEventArr.length; i++) {
             Detail.handlers[eventType][i].apply(this, IEventArr);
@@ -37,3 +37,4 @@ var Detail = /** @class */ (function () {
     return Detail;
 }());
 exports.default = Detail;
+//# sourceMappingURL=DetailFunc.js.map
