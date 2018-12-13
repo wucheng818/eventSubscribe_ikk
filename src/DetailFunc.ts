@@ -1,13 +1,13 @@
 export default class Detail {
     private static handlers: any = {};
-    public onSubscribe( eventType: string, handler: Function ): void{
+    public onSubscribe<T>( eventType: any, handler: T ): void{
         if(!( eventType in Detail.handlers )){
             Detail.handlers[eventType] = [];
         }
         Detail.handlers[eventType].push(handler);
     }
-    public offSubscribe( eventType: string,  handler: Function ): void{
-        let currentIEvent: Function[] = Detail.handlers[eventType];
+    public offSubscribe<T>( eventType: any,  handler: T ): void{
+        let currentIEvent = Detail.handlers[eventType];
         let len = 0;
         if( currentIEvent ){
             len = currentIEvent.length;
@@ -18,13 +18,13 @@ export default class Detail {
             }
         }
     }
-    public emit( eventType: string ): void{
+    public emit<T>( eventType: any,  data: T ): void{
         let IEventArr = Array.prototype.slice.call( arguments, 1 );
         for( var i = 0; i < IEventArr.length; i++ ){
             Detail.handlers[eventType][i].apply( this, IEventArr );
         }
     }
-    public offSubscribeAll( eventType: string ): void{
+    public offSubscribeAll( eventType: any ): void{
         Detail.handlers[eventType]=[];
     }
     public clearCallback(): void{
