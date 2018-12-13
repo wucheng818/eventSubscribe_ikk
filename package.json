@@ -1,6 +1,6 @@
 {
   "name": "eventsubscripts_ikk",
-  "version": "1.0.9",
+  "version": "1.0.11",
   "description": "establishing a global event subscription system",
   "main": "./dist/EventSubscribe.js",
   "scripts": {
