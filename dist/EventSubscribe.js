@@ -23,27 +23,23 @@ var EventBus = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     // 订阅事件
-    EventBus.prototype.subscribe = function (IEvent, IEventCallback) {
-        _super.prototype.onSubscribe.call(this, IEvent, IEventCallback); // 对象的封装
+    EventBus.prototype.subscribe = function (eventType, handler) {
+        _super.prototype.onSubscribe.call(this, eventType, handler); // 对象的封装
         return this;
     };
     // 发布事件通知
-    EventBus.prototype.notify = function (IEvent) {
-        var Arg = [];
-        for (var _i = 1; _i < arguments.length; _i++) {
-            Arg[_i - 1] = arguments[_i];
-        }
-        _super.prototype.emit.call(this, IEvent); // 对象的封装
+    EventBus.prototype.notify = function (eventType) {
+        _super.prototype.emit.call(this, eventType); // 对象的封装
         return this;
     };
     // 取消订阅的方法
-    EventBus.prototype.unsubscribe = function (IEvent, IEventCallback) {
-        _super.prototype.offSubscribe.call(this, IEvent, Function); // 对象的封装
+    EventBus.prototype.unsubscribe = function (eventType, handler) {
+        _super.prototype.offSubscribe.call(this, eventType, Function); // 对象的封装
         return this;
     };
     // 清空一个事件的全部回调
-    EventBus.prototype.unsubscribeAll = function (IEvent, IEventCallback) {
-        _super.prototype.offSubscribeAll.call(this, IEvent, IEventCallback); // 对象的封装
+    EventBus.prototype.unsubscribeAll = function (eventType) {
+        _super.prototype.offSubscribeAll.call(this, eventType); // 对象的封装
         return this;
     };
     // 清空全部的回调事件 
