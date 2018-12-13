@@ -3,50 +3,37 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Detail = /** @class */ (function () {
     function Detail() {
     }
-    Detail.prototype.onSubscribe = function (IEvent, IEventCallback) {
-        if (!(IEvent in Detail.IEventCallbacks)) {
-            Detail.IEventCallbacks[IEvent] = [];
+    Detail.prototype.onSubscribe = function (eventType, handler) {
+        if (!(eventType in Detail.handlers)) {
+            Detail.handlers[eventType] = [];
         }
-        Detail.IEventCallbacks[IEvent].push(IEventCallback);
+        Detail.handlers[eventType].push(handler);
     };
-    Detail.prototype.offSubscribe = function (IEvent, IEventCallback) {
-        var currentIEvent = Detail.IEventCallbacks[IEvent];
+    Detail.prototype.offSubscribe = function (eventType, handler) {
+        var currentIEvent = Detail.handlers[eventType];
         var len = 0;
         if (currentIEvent) {
             len = currentIEvent.length;
             for (var i = 0; i < len; i++) {
-                if (currentIEvent[i] === IEventCallback) {
+                if (currentIEvent[i] === handler) {
                     currentIEvent.splice(i, 1);
                 }
             }
         }
     };
-    Detail.prototype.emit = function (IEvent) {
-        var Arg = [];
-        for (var _i = 1; _i < arguments.length; _i++) {
-            Arg[_i - 1] = arguments[_i];
-        }
+    Detail.prototype.emit = function (eventType) {
         var IEventArr = Array.prototype.slice.call(arguments, 1);
         for (var i = 0; i < IEventArr.length; i++) {
-            Detail.IEventCallbacks[IEvent][i].apply(this, IEventArr);
+            Detail.handlers[eventType][i].apply(this, IEventArr);
         }
     };
-    Detail.prototype.offSubscribeAll = function (IEvent, IEventCallback) {
-        var currentIEvent = Detail.IEventCallbacks[IEvent];
-        var len = 0;
-        if (currentIEvent) {
-            len = currentIEvent.length;
-            for (var i = 0; i < len; i++) {
-                if (currentIEvent[i] === IEventCallback) {
-                    currentIEvent = [];
-                }
-            }
-        }
+    Detail.prototype.offSubscribeAll = function (eventType) {
+        Detail.handlers[eventType] = [];
     };
     Detail.prototype.clearCallback = function () {
-        Detail.IEventCallbacks = {};
+        Detail.handlers = {};
     };
-    Detail.IEventCallbacks = {};
+    Detail.handlers = {};
     return Detail;
 }());
 exports.default = Detail;
